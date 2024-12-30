@@ -20,18 +20,29 @@ mixin _$RepoDeleterEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(Organization organization) selectedOrganization,
+    required TResult Function(Repository repository) repositorySelected,
+    required TResult Function(Repository repository) repositoryDeselected,
+    required TResult Function(Set<Repository> repositories)
+        requestedRepositoryDeletion,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(Organization organization)? selectedOrganization,
+    TResult? Function(Repository repository)? repositorySelected,
+    TResult? Function(Repository repository)? repositoryDeselected,
+    TResult? Function(Set<Repository> repositories)?
+        requestedRepositoryDeletion,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(Organization organization)? selectedOrganization,
+    TResult Function(Repository repository)? repositorySelected,
+    TResult Function(Repository repository)? repositoryDeselected,
+    TResult Function(Set<Repository> repositories)? requestedRepositoryDeletion,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +50,30 @@ mixin _$RepoDeleterEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SelectedOrganization value) selectedOrganization,
+    required TResult Function(_RepositorySelected value) repositorySelected,
+    required TResult Function(_RepositoryDeselected value) repositoryDeselected,
+    required TResult Function(_RequestedRepositoryDeletion value)
+        requestedRepositoryDeletion,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_SelectedOrganization value)? selectedOrganization,
+    TResult? Function(_RepositorySelected value)? repositorySelected,
+    TResult? Function(_RepositoryDeselected value)? repositoryDeselected,
+    TResult? Function(_RequestedRepositoryDeletion value)?
+        requestedRepositoryDeletion,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SelectedOrganization value)? selectedOrganization,
+    TResult Function(_RepositorySelected value)? repositorySelected,
+    TResult Function(_RepositoryDeselected value)? repositoryDeselected,
+    TResult Function(_RequestedRepositoryDeletion value)?
+        requestedRepositoryDeletion,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +143,10 @@ class _$StartedImpl implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(Organization organization) selectedOrganization,
+    required TResult Function(Repository repository) repositorySelected,
+    required TResult Function(Repository repository) repositoryDeselected,
+    required TResult Function(Set<Repository> repositories)
+        requestedRepositoryDeletion,
   }) {
     return started();
   }
@@ -129,6 +156,10 @@ class _$StartedImpl implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(Organization organization)? selectedOrganization,
+    TResult? Function(Repository repository)? repositorySelected,
+    TResult? Function(Repository repository)? repositoryDeselected,
+    TResult? Function(Set<Repository> repositories)?
+        requestedRepositoryDeletion,
   }) {
     return started?.call();
   }
@@ -138,6 +169,9 @@ class _$StartedImpl implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(Organization organization)? selectedOrganization,
+    TResult Function(Repository repository)? repositorySelected,
+    TResult Function(Repository repository)? repositoryDeselected,
+    TResult Function(Set<Repository> repositories)? requestedRepositoryDeletion,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -151,6 +185,10 @@ class _$StartedImpl implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SelectedOrganization value) selectedOrganization,
+    required TResult Function(_RepositorySelected value) repositorySelected,
+    required TResult Function(_RepositoryDeselected value) repositoryDeselected,
+    required TResult Function(_RequestedRepositoryDeletion value)
+        requestedRepositoryDeletion,
   }) {
     return started(this);
   }
@@ -160,6 +198,10 @@ class _$StartedImpl implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_SelectedOrganization value)? selectedOrganization,
+    TResult? Function(_RepositorySelected value)? repositorySelected,
+    TResult? Function(_RepositoryDeselected value)? repositoryDeselected,
+    TResult? Function(_RequestedRepositoryDeletion value)?
+        requestedRepositoryDeletion,
   }) {
     return started?.call(this);
   }
@@ -169,6 +211,10 @@ class _$StartedImpl implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SelectedOrganization value)? selectedOrganization,
+    TResult Function(_RepositorySelected value)? repositorySelected,
+    TResult Function(_RepositoryDeselected value)? repositoryDeselected,
+    TResult Function(_RequestedRepositoryDeletion value)?
+        requestedRepositoryDeletion,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -255,6 +301,10 @@ class _$SelectedOrganizationImpl implements _SelectedOrganization {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(Organization organization) selectedOrganization,
+    required TResult Function(Repository repository) repositorySelected,
+    required TResult Function(Repository repository) repositoryDeselected,
+    required TResult Function(Set<Repository> repositories)
+        requestedRepositoryDeletion,
   }) {
     return selectedOrganization(organization);
   }
@@ -264,6 +314,10 @@ class _$SelectedOrganizationImpl implements _SelectedOrganization {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(Organization organization)? selectedOrganization,
+    TResult? Function(Repository repository)? repositorySelected,
+    TResult? Function(Repository repository)? repositoryDeselected,
+    TResult? Function(Set<Repository> repositories)?
+        requestedRepositoryDeletion,
   }) {
     return selectedOrganization?.call(organization);
   }
@@ -273,6 +327,9 @@ class _$SelectedOrganizationImpl implements _SelectedOrganization {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(Organization organization)? selectedOrganization,
+    TResult Function(Repository repository)? repositorySelected,
+    TResult Function(Repository repository)? repositoryDeselected,
+    TResult Function(Set<Repository> repositories)? requestedRepositoryDeletion,
     required TResult orElse(),
   }) {
     if (selectedOrganization != null) {
@@ -286,6 +343,10 @@ class _$SelectedOrganizationImpl implements _SelectedOrganization {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SelectedOrganization value) selectedOrganization,
+    required TResult Function(_RepositorySelected value) repositorySelected,
+    required TResult Function(_RepositoryDeselected value) repositoryDeselected,
+    required TResult Function(_RequestedRepositoryDeletion value)
+        requestedRepositoryDeletion,
   }) {
     return selectedOrganization(this);
   }
@@ -295,6 +356,10 @@ class _$SelectedOrganizationImpl implements _SelectedOrganization {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_SelectedOrganization value)? selectedOrganization,
+    TResult? Function(_RepositorySelected value)? repositorySelected,
+    TResult? Function(_RepositoryDeselected value)? repositoryDeselected,
+    TResult? Function(_RequestedRepositoryDeletion value)?
+        requestedRepositoryDeletion,
   }) {
     return selectedOrganization?.call(this);
   }
@@ -304,6 +369,10 @@ class _$SelectedOrganizationImpl implements _SelectedOrganization {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SelectedOrganization value)? selectedOrganization,
+    TResult Function(_RepositorySelected value)? repositorySelected,
+    TResult Function(_RepositoryDeselected value)? repositoryDeselected,
+    TResult Function(_RequestedRepositoryDeletion value)?
+        requestedRepositoryDeletion,
     required TResult orElse(),
   }) {
     if (selectedOrganization != null) {
@@ -327,6 +396,516 @@ abstract class _SelectedOrganization implements RepoDeleterEvent {
 }
 
 /// @nodoc
+abstract class _$$RepositorySelectedImplCopyWith<$Res> {
+  factory _$$RepositorySelectedImplCopyWith(_$RepositorySelectedImpl value,
+          $Res Function(_$RepositorySelectedImpl) then) =
+      __$$RepositorySelectedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Repository repository});
+}
+
+/// @nodoc
+class __$$RepositorySelectedImplCopyWithImpl<$Res>
+    extends _$RepoDeleterEventCopyWithImpl<$Res, _$RepositorySelectedImpl>
+    implements _$$RepositorySelectedImplCopyWith<$Res> {
+  __$$RepositorySelectedImplCopyWithImpl(_$RepositorySelectedImpl _value,
+      $Res Function(_$RepositorySelectedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of RepoDeleterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? repository = null,
+  }) {
+    return _then(_$RepositorySelectedImpl(
+      null == repository
+          ? _value.repository
+          : repository // ignore: cast_nullable_to_non_nullable
+              as Repository,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RepositorySelectedImpl implements _RepositorySelected {
+  const _$RepositorySelectedImpl(this.repository);
+
+  @override
+  final Repository repository;
+
+  @override
+  String toString() {
+    return 'RepoDeleterEvent.repositorySelected(repository: $repository)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RepositorySelectedImpl &&
+            (identical(other.repository, repository) ||
+                other.repository == repository));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, repository);
+
+  /// Create a copy of RepoDeleterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RepositorySelectedImplCopyWith<_$RepositorySelectedImpl> get copyWith =>
+      __$$RepositorySelectedImplCopyWithImpl<_$RepositorySelectedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(Organization organization) selectedOrganization,
+    required TResult Function(Repository repository) repositorySelected,
+    required TResult Function(Repository repository) repositoryDeselected,
+    required TResult Function(Set<Repository> repositories)
+        requestedRepositoryDeletion,
+  }) {
+    return repositorySelected(repository);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(Organization organization)? selectedOrganization,
+    TResult? Function(Repository repository)? repositorySelected,
+    TResult? Function(Repository repository)? repositoryDeselected,
+    TResult? Function(Set<Repository> repositories)?
+        requestedRepositoryDeletion,
+  }) {
+    return repositorySelected?.call(repository);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(Organization organization)? selectedOrganization,
+    TResult Function(Repository repository)? repositorySelected,
+    TResult Function(Repository repository)? repositoryDeselected,
+    TResult Function(Set<Repository> repositories)? requestedRepositoryDeletion,
+    required TResult orElse(),
+  }) {
+    if (repositorySelected != null) {
+      return repositorySelected(repository);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SelectedOrganization value) selectedOrganization,
+    required TResult Function(_RepositorySelected value) repositorySelected,
+    required TResult Function(_RepositoryDeselected value) repositoryDeselected,
+    required TResult Function(_RequestedRepositoryDeletion value)
+        requestedRepositoryDeletion,
+  }) {
+    return repositorySelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_SelectedOrganization value)? selectedOrganization,
+    TResult? Function(_RepositorySelected value)? repositorySelected,
+    TResult? Function(_RepositoryDeselected value)? repositoryDeselected,
+    TResult? Function(_RequestedRepositoryDeletion value)?
+        requestedRepositoryDeletion,
+  }) {
+    return repositorySelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SelectedOrganization value)? selectedOrganization,
+    TResult Function(_RepositorySelected value)? repositorySelected,
+    TResult Function(_RepositoryDeselected value)? repositoryDeselected,
+    TResult Function(_RequestedRepositoryDeletion value)?
+        requestedRepositoryDeletion,
+    required TResult orElse(),
+  }) {
+    if (repositorySelected != null) {
+      return repositorySelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RepositorySelected implements RepoDeleterEvent {
+  const factory _RepositorySelected(final Repository repository) =
+      _$RepositorySelectedImpl;
+
+  Repository get repository;
+
+  /// Create a copy of RepoDeleterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RepositorySelectedImplCopyWith<_$RepositorySelectedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RepositoryDeselectedImplCopyWith<$Res> {
+  factory _$$RepositoryDeselectedImplCopyWith(_$RepositoryDeselectedImpl value,
+          $Res Function(_$RepositoryDeselectedImpl) then) =
+      __$$RepositoryDeselectedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Repository repository});
+}
+
+/// @nodoc
+class __$$RepositoryDeselectedImplCopyWithImpl<$Res>
+    extends _$RepoDeleterEventCopyWithImpl<$Res, _$RepositoryDeselectedImpl>
+    implements _$$RepositoryDeselectedImplCopyWith<$Res> {
+  __$$RepositoryDeselectedImplCopyWithImpl(_$RepositoryDeselectedImpl _value,
+      $Res Function(_$RepositoryDeselectedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of RepoDeleterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? repository = null,
+  }) {
+    return _then(_$RepositoryDeselectedImpl(
+      null == repository
+          ? _value.repository
+          : repository // ignore: cast_nullable_to_non_nullable
+              as Repository,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RepositoryDeselectedImpl implements _RepositoryDeselected {
+  const _$RepositoryDeselectedImpl(this.repository);
+
+  @override
+  final Repository repository;
+
+  @override
+  String toString() {
+    return 'RepoDeleterEvent.repositoryDeselected(repository: $repository)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RepositoryDeselectedImpl &&
+            (identical(other.repository, repository) ||
+                other.repository == repository));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, repository);
+
+  /// Create a copy of RepoDeleterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RepositoryDeselectedImplCopyWith<_$RepositoryDeselectedImpl>
+      get copyWith =>
+          __$$RepositoryDeselectedImplCopyWithImpl<_$RepositoryDeselectedImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(Organization organization) selectedOrganization,
+    required TResult Function(Repository repository) repositorySelected,
+    required TResult Function(Repository repository) repositoryDeselected,
+    required TResult Function(Set<Repository> repositories)
+        requestedRepositoryDeletion,
+  }) {
+    return repositoryDeselected(repository);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(Organization organization)? selectedOrganization,
+    TResult? Function(Repository repository)? repositorySelected,
+    TResult? Function(Repository repository)? repositoryDeselected,
+    TResult? Function(Set<Repository> repositories)?
+        requestedRepositoryDeletion,
+  }) {
+    return repositoryDeselected?.call(repository);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(Organization organization)? selectedOrganization,
+    TResult Function(Repository repository)? repositorySelected,
+    TResult Function(Repository repository)? repositoryDeselected,
+    TResult Function(Set<Repository> repositories)? requestedRepositoryDeletion,
+    required TResult orElse(),
+  }) {
+    if (repositoryDeselected != null) {
+      return repositoryDeselected(repository);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SelectedOrganization value) selectedOrganization,
+    required TResult Function(_RepositorySelected value) repositorySelected,
+    required TResult Function(_RepositoryDeselected value) repositoryDeselected,
+    required TResult Function(_RequestedRepositoryDeletion value)
+        requestedRepositoryDeletion,
+  }) {
+    return repositoryDeselected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_SelectedOrganization value)? selectedOrganization,
+    TResult? Function(_RepositorySelected value)? repositorySelected,
+    TResult? Function(_RepositoryDeselected value)? repositoryDeselected,
+    TResult? Function(_RequestedRepositoryDeletion value)?
+        requestedRepositoryDeletion,
+  }) {
+    return repositoryDeselected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SelectedOrganization value)? selectedOrganization,
+    TResult Function(_RepositorySelected value)? repositorySelected,
+    TResult Function(_RepositoryDeselected value)? repositoryDeselected,
+    TResult Function(_RequestedRepositoryDeletion value)?
+        requestedRepositoryDeletion,
+    required TResult orElse(),
+  }) {
+    if (repositoryDeselected != null) {
+      return repositoryDeselected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RepositoryDeselected implements RepoDeleterEvent {
+  const factory _RepositoryDeselected(final Repository repository) =
+      _$RepositoryDeselectedImpl;
+
+  Repository get repository;
+
+  /// Create a copy of RepoDeleterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RepositoryDeselectedImplCopyWith<_$RepositoryDeselectedImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RequestedRepositoryDeletionImplCopyWith<$Res> {
+  factory _$$RequestedRepositoryDeletionImplCopyWith(
+          _$RequestedRepositoryDeletionImpl value,
+          $Res Function(_$RequestedRepositoryDeletionImpl) then) =
+      __$$RequestedRepositoryDeletionImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Set<Repository> repositories});
+}
+
+/// @nodoc
+class __$$RequestedRepositoryDeletionImplCopyWithImpl<$Res>
+    extends _$RepoDeleterEventCopyWithImpl<$Res,
+        _$RequestedRepositoryDeletionImpl>
+    implements _$$RequestedRepositoryDeletionImplCopyWith<$Res> {
+  __$$RequestedRepositoryDeletionImplCopyWithImpl(
+      _$RequestedRepositoryDeletionImpl _value,
+      $Res Function(_$RequestedRepositoryDeletionImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of RepoDeleterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? repositories = null,
+  }) {
+    return _then(_$RequestedRepositoryDeletionImpl(
+      null == repositories
+          ? _value._repositories
+          : repositories // ignore: cast_nullable_to_non_nullable
+              as Set<Repository>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RequestedRepositoryDeletionImpl
+    implements _RequestedRepositoryDeletion {
+  const _$RequestedRepositoryDeletionImpl(final Set<Repository> repositories)
+      : _repositories = repositories;
+
+  final Set<Repository> _repositories;
+  @override
+  Set<Repository> get repositories {
+    if (_repositories is EqualUnmodifiableSetView) return _repositories;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(_repositories);
+  }
+
+  @override
+  String toString() {
+    return 'RepoDeleterEvent.requestedRepositoryDeletion(repositories: $repositories)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RequestedRepositoryDeletionImpl &&
+            const DeepCollectionEquality()
+                .equals(other._repositories, _repositories));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_repositories));
+
+  /// Create a copy of RepoDeleterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RequestedRepositoryDeletionImplCopyWith<_$RequestedRepositoryDeletionImpl>
+      get copyWith => __$$RequestedRepositoryDeletionImplCopyWithImpl<
+          _$RequestedRepositoryDeletionImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(Organization organization) selectedOrganization,
+    required TResult Function(Repository repository) repositorySelected,
+    required TResult Function(Repository repository) repositoryDeselected,
+    required TResult Function(Set<Repository> repositories)
+        requestedRepositoryDeletion,
+  }) {
+    return requestedRepositoryDeletion(repositories);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(Organization organization)? selectedOrganization,
+    TResult? Function(Repository repository)? repositorySelected,
+    TResult? Function(Repository repository)? repositoryDeselected,
+    TResult? Function(Set<Repository> repositories)?
+        requestedRepositoryDeletion,
+  }) {
+    return requestedRepositoryDeletion?.call(repositories);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(Organization organization)? selectedOrganization,
+    TResult Function(Repository repository)? repositorySelected,
+    TResult Function(Repository repository)? repositoryDeselected,
+    TResult Function(Set<Repository> repositories)? requestedRepositoryDeletion,
+    required TResult orElse(),
+  }) {
+    if (requestedRepositoryDeletion != null) {
+      return requestedRepositoryDeletion(repositories);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SelectedOrganization value) selectedOrganization,
+    required TResult Function(_RepositorySelected value) repositorySelected,
+    required TResult Function(_RepositoryDeselected value) repositoryDeselected,
+    required TResult Function(_RequestedRepositoryDeletion value)
+        requestedRepositoryDeletion,
+  }) {
+    return requestedRepositoryDeletion(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_SelectedOrganization value)? selectedOrganization,
+    TResult? Function(_RepositorySelected value)? repositorySelected,
+    TResult? Function(_RepositoryDeselected value)? repositoryDeselected,
+    TResult? Function(_RequestedRepositoryDeletion value)?
+        requestedRepositoryDeletion,
+  }) {
+    return requestedRepositoryDeletion?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SelectedOrganization value)? selectedOrganization,
+    TResult Function(_RepositorySelected value)? repositorySelected,
+    TResult Function(_RepositoryDeselected value)? repositoryDeselected,
+    TResult Function(_RequestedRepositoryDeletion value)?
+        requestedRepositoryDeletion,
+    required TResult orElse(),
+  }) {
+    if (requestedRepositoryDeletion != null) {
+      return requestedRepositoryDeletion(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RequestedRepositoryDeletion implements RepoDeleterEvent {
+  const factory _RequestedRepositoryDeletion(
+      final Set<Repository> repositories) = _$RequestedRepositoryDeletionImpl;
+
+  Set<Repository> get repositories;
+
+  /// Create a copy of RepoDeleterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RequestedRepositoryDeletionImplCopyWith<_$RequestedRepositoryDeletionImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$RepoDeleterState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -337,7 +916,7 @@ mixin _$RepoDeleterState {
     required TResult Function(GitHub github, Organization organization)
         organizationSelected,
     required TResult Function(GitHub github, Organization organization,
-            List<Repository> repositories)
+            List<Repository> repositories, Set<Repository> selected)
         repositoriesLoaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -350,7 +929,7 @@ mixin _$RepoDeleterState {
     TResult? Function(GitHub github, Organization organization)?
         organizationSelected,
     TResult? Function(GitHub github, Organization organization,
-            List<Repository> repositories)?
+            List<Repository> repositories, Set<Repository> selected)?
         repositoriesLoaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -363,7 +942,7 @@ mixin _$RepoDeleterState {
     TResult Function(GitHub github, Organization organization)?
         organizationSelected,
     TResult Function(GitHub github, Organization organization,
-            List<Repository> repositories)?
+            List<Repository> repositories, Set<Repository> selected)?
         repositoriesLoaded,
     required TResult orElse(),
   }) =>
@@ -467,7 +1046,7 @@ class _$InitialImpl implements Initial {
     required TResult Function(GitHub github, Organization organization)
         organizationSelected,
     required TResult Function(GitHub github, Organization organization,
-            List<Repository> repositories)
+            List<Repository> repositories, Set<Repository> selected)
         repositoriesLoaded,
   }) {
     return initial();
@@ -483,7 +1062,7 @@ class _$InitialImpl implements Initial {
     TResult? Function(GitHub github, Organization organization)?
         organizationSelected,
     TResult? Function(GitHub github, Organization organization,
-            List<Repository> repositories)?
+            List<Repository> repositories, Set<Repository> selected)?
         repositoriesLoaded,
   }) {
     return initial?.call();
@@ -499,7 +1078,7 @@ class _$InitialImpl implements Initial {
     TResult Function(GitHub github, Organization organization)?
         organizationSelected,
     TResult Function(GitHub github, Organization organization,
-            List<Repository> repositories)?
+            List<Repository> repositories, Set<Repository> selected)?
         repositoriesLoaded,
     required TResult orElse(),
   }) {
@@ -603,7 +1182,7 @@ class _$AuthenticationFailedImpl implements AuthenticationFailed {
     required TResult Function(GitHub github, Organization organization)
         organizationSelected,
     required TResult Function(GitHub github, Organization organization,
-            List<Repository> repositories)
+            List<Repository> repositories, Set<Repository> selected)
         repositoriesLoaded,
   }) {
     return authenticationFailed();
@@ -619,7 +1198,7 @@ class _$AuthenticationFailedImpl implements AuthenticationFailed {
     TResult? Function(GitHub github, Organization organization)?
         organizationSelected,
     TResult? Function(GitHub github, Organization organization,
-            List<Repository> repositories)?
+            List<Repository> repositories, Set<Repository> selected)?
         repositoriesLoaded,
   }) {
     return authenticationFailed?.call();
@@ -635,7 +1214,7 @@ class _$AuthenticationFailedImpl implements AuthenticationFailed {
     TResult Function(GitHub github, Organization organization)?
         organizationSelected,
     TResult Function(GitHub github, Organization organization,
-            List<Repository> repositories)?
+            List<Repository> repositories, Set<Repository> selected)?
         repositoriesLoaded,
     required TResult orElse(),
   }) {
@@ -782,7 +1361,7 @@ class _$AuthenticatedImpl implements Authenticated {
     required TResult Function(GitHub github, Organization organization)
         organizationSelected,
     required TResult Function(GitHub github, Organization organization,
-            List<Repository> repositories)
+            List<Repository> repositories, Set<Repository> selected)
         repositoriesLoaded,
   }) {
     return authenticated(github, organizations);
@@ -798,7 +1377,7 @@ class _$AuthenticatedImpl implements Authenticated {
     TResult? Function(GitHub github, Organization organization)?
         organizationSelected,
     TResult? Function(GitHub github, Organization organization,
-            List<Repository> repositories)?
+            List<Repository> repositories, Set<Repository> selected)?
         repositoriesLoaded,
   }) {
     return authenticated?.call(github, organizations);
@@ -814,7 +1393,7 @@ class _$AuthenticatedImpl implements Authenticated {
     TResult Function(GitHub github, Organization organization)?
         organizationSelected,
     TResult Function(GitHub github, Organization organization,
-            List<Repository> repositories)?
+            List<Repository> repositories, Set<Repository> selected)?
         repositoriesLoaded,
     required TResult orElse(),
   }) {
@@ -967,7 +1546,7 @@ class _$OrganizationSelectedImpl implements OrganizationSelected {
     required TResult Function(GitHub github, Organization organization)
         organizationSelected,
     required TResult Function(GitHub github, Organization organization,
-            List<Repository> repositories)
+            List<Repository> repositories, Set<Repository> selected)
         repositoriesLoaded,
   }) {
     return organizationSelected(github, organization);
@@ -983,7 +1562,7 @@ class _$OrganizationSelectedImpl implements OrganizationSelected {
     TResult? Function(GitHub github, Organization organization)?
         organizationSelected,
     TResult? Function(GitHub github, Organization organization,
-            List<Repository> repositories)?
+            List<Repository> repositories, Set<Repository> selected)?
         repositoriesLoaded,
   }) {
     return organizationSelected?.call(github, organization);
@@ -999,7 +1578,7 @@ class _$OrganizationSelectedImpl implements OrganizationSelected {
     TResult Function(GitHub github, Organization organization)?
         organizationSelected,
     TResult Function(GitHub github, Organization organization,
-            List<Repository> repositories)?
+            List<Repository> repositories, Set<Repository> selected)?
         repositoriesLoaded,
     required TResult orElse(),
   }) {
@@ -1074,7 +1653,8 @@ abstract class _$$RepositoriesLoadedImplCopyWith<$Res> {
   $Res call(
       {GitHub github,
       Organization organization,
-      List<Repository> repositories});
+      List<Repository> repositories,
+      Set<Repository> selected});
 }
 
 /// @nodoc
@@ -1093,6 +1673,7 @@ class __$$RepositoriesLoadedImplCopyWithImpl<$Res>
     Object? github = null,
     Object? organization = null,
     Object? repositories = null,
+    Object? selected = null,
   }) {
     return _then(_$RepositoriesLoadedImpl(
       github: null == github
@@ -1107,6 +1688,10 @@ class __$$RepositoriesLoadedImplCopyWithImpl<$Res>
           ? _value._repositories
           : repositories // ignore: cast_nullable_to_non_nullable
               as List<Repository>,
+      selected: null == selected
+          ? _value._selected
+          : selected // ignore: cast_nullable_to_non_nullable
+              as Set<Repository>,
     ));
   }
 }
@@ -1117,8 +1702,10 @@ class _$RepositoriesLoadedImpl implements RepositoriesLoaded {
   const _$RepositoriesLoadedImpl(
       {required this.github,
       required this.organization,
-      required final List<Repository> repositories})
-      : _repositories = repositories;
+      required final List<Repository> repositories,
+      final Set<Repository> selected = const {}})
+      : _repositories = repositories,
+        _selected = selected;
 
   @override
   final GitHub github;
@@ -1132,9 +1719,18 @@ class _$RepositoriesLoadedImpl implements RepositoriesLoaded {
     return EqualUnmodifiableListView(_repositories);
   }
 
+  final Set<Repository> _selected;
+  @override
+  @JsonKey()
+  Set<Repository> get selected {
+    if (_selected is EqualUnmodifiableSetView) return _selected;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(_selected);
+  }
+
   @override
   String toString() {
-    return 'RepoDeleterState.repositoriesLoaded(github: $github, organization: $organization, repositories: $repositories)';
+    return 'RepoDeleterState.repositoriesLoaded(github: $github, organization: $organization, repositories: $repositories, selected: $selected)';
   }
 
   @override
@@ -1146,12 +1742,17 @@ class _$RepositoriesLoadedImpl implements RepositoriesLoaded {
             (identical(other.organization, organization) ||
                 other.organization == organization) &&
             const DeepCollectionEquality()
-                .equals(other._repositories, _repositories));
+                .equals(other._repositories, _repositories) &&
+            const DeepCollectionEquality().equals(other._selected, _selected));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, github, organization,
-      const DeepCollectionEquality().hash(_repositories));
+  int get hashCode => Object.hash(
+      runtimeType,
+      github,
+      organization,
+      const DeepCollectionEquality().hash(_repositories),
+      const DeepCollectionEquality().hash(_selected));
 
   /// Create a copy of RepoDeleterState
   /// with the given fields replaced by the non-null parameter values.
@@ -1172,10 +1773,10 @@ class _$RepositoriesLoadedImpl implements RepositoriesLoaded {
     required TResult Function(GitHub github, Organization organization)
         organizationSelected,
     required TResult Function(GitHub github, Organization organization,
-            List<Repository> repositories)
+            List<Repository> repositories, Set<Repository> selected)
         repositoriesLoaded,
   }) {
-    return repositoriesLoaded(github, organization, repositories);
+    return repositoriesLoaded(github, organization, repositories, selected);
   }
 
   @override
@@ -1188,10 +1789,11 @@ class _$RepositoriesLoadedImpl implements RepositoriesLoaded {
     TResult? Function(GitHub github, Organization organization)?
         organizationSelected,
     TResult? Function(GitHub github, Organization organization,
-            List<Repository> repositories)?
+            List<Repository> repositories, Set<Repository> selected)?
         repositoriesLoaded,
   }) {
-    return repositoriesLoaded?.call(github, organization, repositories);
+    return repositoriesLoaded?.call(
+        github, organization, repositories, selected);
   }
 
   @override
@@ -1204,12 +1806,12 @@ class _$RepositoriesLoadedImpl implements RepositoriesLoaded {
     TResult Function(GitHub github, Organization organization)?
         organizationSelected,
     TResult Function(GitHub github, Organization organization,
-            List<Repository> repositories)?
+            List<Repository> repositories, Set<Repository> selected)?
         repositoriesLoaded,
     required TResult orElse(),
   }) {
     if (repositoriesLoaded != null) {
-      return repositoriesLoaded(github, organization, repositories);
+      return repositoriesLoaded(github, organization, repositories, selected);
     }
     return orElse();
   }
@@ -1259,11 +1861,13 @@ abstract class RepositoriesLoaded implements RepoDeleterState {
   const factory RepositoriesLoaded(
       {required final GitHub github,
       required final Organization organization,
-      required final List<Repository> repositories}) = _$RepositoriesLoadedImpl;
+      required final List<Repository> repositories,
+      final Set<Repository> selected}) = _$RepositoriesLoadedImpl;
 
   GitHub get github;
   Organization get organization;
   List<Repository> get repositories;
+  Set<Repository> get selected;
 
   /// Create a copy of RepoDeleterState
   /// with the given fields replaced by the non-null parameter values.

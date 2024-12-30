@@ -48,11 +48,28 @@ class RepoDeleterWidget extends StatelessWidget {
                   const CircularProgressIndicator(),
                 ],
               ),
-            RepositoriesLoaded(:final organization, :final repositories) =>
+            RepositoriesLoaded(
+              :final organization,
+              :final repositories,
+              :final selected
+            ) =>
               Column(
                 children: [
                   _makeOrganizationHeader(organization),
-                  _RepositorySelectionWidget(repositories),
+                  Expanded(
+                    child: _RepositorySelectionWidget(
+                      repositories: repositories,
+                      selected: selected,
+                      onChanged: (value, repository) =>
+                          context.read<RepoDeleterBloc>().add(
+                                value
+                                    ? RepoDeleterEvent.repositorySelected(
+                                        repository)
+                                    : RepoDeleterEvent.repositoryDeselected(
+                                        repository),
+                              ),
+                    ),
+                  ),
                   const ElevatedButton(
                     onPressed: null,
                     child: Text(
@@ -75,41 +92,28 @@ class RepoDeleterWidget extends StatelessWidget {
       Text('Organization: ${organization.login}');
 }
 
-class _RepositorySelectionWidget extends StatefulWidget {
-  final List<Repository> repositories;
+class _RepositorySelectionWidget extends StatelessWidget {
+  final Iterable<Repository> repositories;
+  final Set<Repository> selected;
+  final Function(bool, Repository) onChanged;
 
-  const _RepositorySelectionWidget(this.repositories);
-
-  @override
-  State<_RepositorySelectionWidget> createState() =>
-      _RepositorySelectionWidgetState();
-}
-
-class _RepositorySelectionWidgetState
-    extends State<_RepositorySelectionWidget> {
-  final Set<Repository> selectedRepositories = {};
+  const _RepositorySelectionWidget(
+      {required this.repositories,
+      required this.selected,
+      required this.onChanged});
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView(
-        children: [
-          for (final repo in widget.repositories)
-            CheckboxListTile(
-              title: Text(repo.name),
-              value: selectedRepositories.contains(repo),
-              onChanged: (selected) => setState(() {
-                if (selected != null) {
-                  if (selected) {
-                    selectedRepositories.add(repo);
-                  } else {
-                    selectedRepositories.remove(repo);
-                  }
-                }
-              }),
-            ),
-        ],
-      ),
+    return ListView(
+      children: [
+        for (final repo in repositories)
+          CheckboxListTile(
+            title: Text(repo.name),
+            value: selected.contains(repo),
+            onChanged: (value) =>
+                (value != null) ? onChanged(value, repo) : null,
+          )
+      ],
     );
   }
 }

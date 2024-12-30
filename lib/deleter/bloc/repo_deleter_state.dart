@@ -17,9 +17,14 @@ sealed class RepoDeleterState with _$RepoDeleterState {
     required Organization organization,
   }) = OrganizationSelected;
 
+  /// Show the repositories for selection.
+  ///
+  /// [repositories] is a list of all the repositories, and
+  /// [selected] indicates which ones are selected.
   const factory RepoDeleterState.repositoriesLoaded({
     required GitHub github,
     required Organization organization,
     required List<Repository> repositories,
+    @Default({}) Set<Repository> selected,
   }) = RepositoriesLoaded;
 }
