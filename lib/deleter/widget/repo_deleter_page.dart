@@ -44,7 +44,7 @@ class RepoDeleterWidget extends StatelessWidget {
               ),
             OrganizationSelected(:final organization) => Column(
                 children: [
-                  _makeOrganizationHeader(organization),
+                  _OrganizationHeader(organization),
                   const CircularProgressIndicator(),
                 ],
               ),
@@ -55,7 +55,7 @@ class RepoDeleterWidget extends StatelessWidget {
             ) =>
               Column(
                 children: [
-                  _makeOrganizationHeader(organization),
+                  _OrganizationHeader(organization),
                   Expanded(
                     child: _RepositorySelectionWidget(
                       repositories: repositories,
@@ -87,9 +87,18 @@ class RepoDeleterWidget extends StatelessWidget {
   Widget _showAuthenticationFailure() {
     return const Text('Authentication not found in environment.');
   }
+}
 
-  Widget _makeOrganizationHeader(Organization organization) =>
-      Text('Organization: ${organization.login}');
+class _OrganizationHeader extends StatelessWidget {
+  final Organization organization;
+
+  const _OrganizationHeader(this.organization);
+
+  @override
+  Widget build(BuildContext context) => Text(
+        'Organization: ${organization.login}',
+        style: Theme.of(context).textTheme.titleMedium,
+      );
 }
 
 class _RepositorySelectionWidget extends StatelessWidget {
