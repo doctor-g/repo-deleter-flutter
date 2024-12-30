@@ -53,31 +53,21 @@ class RepoDeleterWidget extends StatelessWidget {
               :final repositories,
               :final selected
             ) =>
-              Column(
-                children: [
-                  _OrganizationHeader(organization),
-                  Expanded(
-                    child: _RepositorySelectionWidget(
-                      repositories: repositories,
-                      selected: selected,
-                      onChanged: (value, repository) =>
-                          context.read<RepoDeleterBloc>().add(
-                                value
-                                    ? RepoDeleterEvent.repositorySelected(
-                                        repository)
-                                    : RepoDeleterEvent.repositoryDeselected(
-                                        repository),
-                              ),
-                    ),
-                  ),
-                  const ElevatedButton(
-                    onPressed: null,
-                    child: Text(
-                      'Delete Selected Repositories\n(Not Yet Implemented)',
-                    ),
-                  )
-                ],
-              ),
+              _RepositoriesView(
+                  organization: organization,
+                  repositories: repositories,
+                  selected: selected,
+                  enabled: true),
+            DeletingRepositories(
+              :final organization,
+              :final repositories,
+              :final deleting
+            ) =>
+              _RepositoriesView(
+                  organization: organization,
+                  repositories: repositories,
+                  selected: deleting,
+                  enabled: false),
           };
         },
       ),
@@ -101,10 +91,53 @@ class _OrganizationHeader extends StatelessWidget {
       );
 }
 
+class _RepositoriesView extends StatelessWidget {
+  final Organization organization;
+  final Iterable<Repository> repositories;
+  final Set<Repository> selected;
+  final bool enabled;
+
+  const _RepositoriesView(
+      {required this.organization,
+      required this.repositories,
+      required this.selected,
+      required this.enabled});
+
+  @override
+  Widget build(BuildContext context) => Column(
+        children: [
+          _OrganizationHeader(organization),
+          Expanded(
+            child: _RepositorySelectionWidget(
+              repositories: repositories,
+              selected: selected,
+              onChanged: enabled
+                  ? ((value, repository) => context.read<RepoDeleterBloc>().add(
+                        value
+                            ? RepoDeleterEvent.repositorySelected(repository)
+                            : RepoDeleterEvent.repositoryDeselected(repository),
+                      ))
+                  : null,
+            ),
+          ),
+          ElevatedButton(
+            onPressed: (!enabled || selected.isEmpty)
+                ? null
+                : () => context.read<RepoDeleterBloc>().add(
+                      RepoDeleterEvent.requestedRepositoryDeletion(selected),
+                    ),
+            child: const Text(
+              'Delete Selected Repositories',
+            ),
+          )
+        ],
+      );
+}
+
 class _RepositorySelectionWidget extends StatelessWidget {
   final Iterable<Repository> repositories;
   final Set<Repository> selected;
-  final Function(bool, Repository) onChanged;
+  final Function(bool, Repository)? onChanged;
 
   const _RepositorySelectionWidget(
       {required this.repositories,
@@ -119,8 +152,9 @@ class _RepositorySelectionWidget extends StatelessWidget {
           CheckboxListTile(
             title: Text(repo.name),
             value: selected.contains(repo),
-            onChanged: (value) =>
-                (value != null) ? onChanged(value, repo) : null,
+            onChanged: onChanged == null
+                ? null
+                : (value) => (value != null) ? onChanged!(value, repo) : null,
           )
       ],
     );

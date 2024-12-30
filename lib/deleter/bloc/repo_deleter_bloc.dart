@@ -72,14 +72,25 @@ class RepoDeleterBloc extends Bloc<RepoDeleterEvent, RepoDeleterState> {
       Emitter<RepoDeleterState> emit) async {
     final s = state as RepositoriesLoaded;
     final github = s.github;
+    final organization = s.organization;
+
+    emit(RepoDeleterState.deleting(
+      github: github,
+      organization: organization,
+      repositories: s.repositories,
+      deleting: s.selected,
+    ));
+
     final futures = <Future>[];
     for (final repository in event.repositories) {
-      print('Here I would be deleting ${repository.name}');
-      //github.repositories.deleteRepository(repository.slug());
+      print('Deleting ${repository.name}');
+      final future = github.repositories.deleteRepository(repository.slug());
+      futures.add(future);
     }
+
+    // Wait for all the repositories to be deleted
     await Future.wait(futures);
 
-    final organization = s.organization;
     final repositoriesService = github.repositories;
     final stream = repositoriesService
         .listOrganizationRepositories(organization.login!, type: 'all');

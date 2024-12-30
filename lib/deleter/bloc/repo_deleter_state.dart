@@ -27,4 +27,10 @@ sealed class RepoDeleterState with _$RepoDeleterState {
     required List<Repository> repositories,
     @Default({}) Set<Repository> selected,
   }) = RepositoriesLoaded;
+
+  const factory RepoDeleterState.deleting(
+      {required GitHub github,
+      required Organization organization,
+      required List<Repository> repositories,
+      required Set<Repository> deleting}) = DeletingRepositories;
 }
