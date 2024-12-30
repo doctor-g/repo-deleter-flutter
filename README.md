@@ -1,4 +1,4 @@
-# repo_deleter_flutter
+# Repo Deleter
 
 Remove repositories from GitHub organizations
 
@@ -10,3 +10,9 @@ That personal access token needs the following permissions:
 - read:user
 - repo (full category)
 - delete_repo
+
+## Legal
+
+&copy;2024 Paul Gestwicki
+
+Licensed under the [GPL v3](LICENSE).
