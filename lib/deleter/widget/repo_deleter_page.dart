@@ -41,10 +41,15 @@ class RepoDeleterWidget extends StatelessWidget {
             Authenticated(organizations: var organizations) =>
               DropdownMenu<Organization>(
                 label: const Text('Organization'),
-                onSelected: (organization) => organization != null
-                    ? context.read<RepoDeleterBloc>().add(
-                        RepoDeleterEvent.selectedOrganization(organization))
-                    : print('I did not think this could happen'),
+                onSelected: (organization) =>
+                    // If there is an organization, then tell the bloc that
+                    // it was selected. The DropownMenu API allows for a null
+                    // selection here. I am not sure what that would mean, so
+                    // we simply do nothing.
+                    organization != null
+                        ? context.read<RepoDeleterBloc>().add(
+                            RepoDeleterEvent.selectedOrganization(organization))
+                        : null,
                 dropdownMenuEntries: [
                   for (final organization in organizations)
                     DropdownMenuEntry<Organization>(

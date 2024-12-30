@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:github/github.dart';
+import 'package:logging/logging.dart';
 
 part 'repo_deleter_bloc.freezed.dart';
 part 'repo_deleter_event.dart';
@@ -82,8 +83,9 @@ class RepoDeleterBloc extends Bloc<RepoDeleterEvent, RepoDeleterState> {
     ));
 
     final futures = <Future>[];
+    final logger = Logger('$RepoDeleterBloc');
     for (final repository in event.repositories) {
-      print('Deleting ${repository.name}');
+      logger.fine('Deleting ${repository.name}');
       final future = github.repositories.deleteRepository(repository.slug());
       futures.add(future);
     }
