@@ -334,6 +334,9 @@ mixin _$RepoDeleterState {
     required TResult Function() authenticationFailed,
     required TResult Function(GitHub github, List<Organization> organizations)
         authenticated,
+    required TResult Function(GitHub github, Organization organization,
+            Stream<Repository> repositories)
+        organizationSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -342,6 +345,9 @@ mixin _$RepoDeleterState {
     TResult? Function()? authenticationFailed,
     TResult? Function(GitHub github, List<Organization> organizations)?
         authenticated,
+    TResult? Function(GitHub github, Organization organization,
+            Stream<Repository> repositories)?
+        organizationSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -350,6 +356,9 @@ mixin _$RepoDeleterState {
     TResult Function()? authenticationFailed,
     TResult Function(GitHub github, List<Organization> organizations)?
         authenticated,
+    TResult Function(GitHub github, Organization organization,
+            Stream<Repository> repositories)?
+        organizationSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -358,6 +367,7 @@ mixin _$RepoDeleterState {
     required TResult Function(Initial value) initial,
     required TResult Function(AuthenticationFailed value) authenticationFailed,
     required TResult Function(Authenticated value) authenticated,
+    required TResult Function(OrganizationSelected value) organizationSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -365,6 +375,7 @@ mixin _$RepoDeleterState {
     TResult? Function(Initial value)? initial,
     TResult? Function(AuthenticationFailed value)? authenticationFailed,
     TResult? Function(Authenticated value)? authenticated,
+    TResult? Function(OrganizationSelected value)? organizationSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -372,6 +383,7 @@ mixin _$RepoDeleterState {
     TResult Function(Initial value)? initial,
     TResult Function(AuthenticationFailed value)? authenticationFailed,
     TResult Function(Authenticated value)? authenticated,
+    TResult Function(OrganizationSelected value)? organizationSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -443,6 +455,9 @@ class _$InitialImpl implements Initial {
     required TResult Function() authenticationFailed,
     required TResult Function(GitHub github, List<Organization> organizations)
         authenticated,
+    required TResult Function(GitHub github, Organization organization,
+            Stream<Repository> repositories)
+        organizationSelected,
   }) {
     return initial();
   }
@@ -454,6 +469,9 @@ class _$InitialImpl implements Initial {
     TResult? Function()? authenticationFailed,
     TResult? Function(GitHub github, List<Organization> organizations)?
         authenticated,
+    TResult? Function(GitHub github, Organization organization,
+            Stream<Repository> repositories)?
+        organizationSelected,
   }) {
     return initial?.call();
   }
@@ -465,6 +483,9 @@ class _$InitialImpl implements Initial {
     TResult Function()? authenticationFailed,
     TResult Function(GitHub github, List<Organization> organizations)?
         authenticated,
+    TResult Function(GitHub github, Organization organization,
+            Stream<Repository> repositories)?
+        organizationSelected,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -479,6 +500,7 @@ class _$InitialImpl implements Initial {
     required TResult Function(Initial value) initial,
     required TResult Function(AuthenticationFailed value) authenticationFailed,
     required TResult Function(Authenticated value) authenticated,
+    required TResult Function(OrganizationSelected value) organizationSelected,
   }) {
     return initial(this);
   }
@@ -489,6 +511,7 @@ class _$InitialImpl implements Initial {
     TResult? Function(Initial value)? initial,
     TResult? Function(AuthenticationFailed value)? authenticationFailed,
     TResult? Function(Authenticated value)? authenticated,
+    TResult? Function(OrganizationSelected value)? organizationSelected,
   }) {
     return initial?.call(this);
   }
@@ -499,6 +522,7 @@ class _$InitialImpl implements Initial {
     TResult Function(Initial value)? initial,
     TResult Function(AuthenticationFailed value)? authenticationFailed,
     TResult Function(Authenticated value)? authenticated,
+    TResult Function(OrganizationSelected value)? organizationSelected,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -558,6 +582,9 @@ class _$AuthenticationFailedImpl implements AuthenticationFailed {
     required TResult Function() authenticationFailed,
     required TResult Function(GitHub github, List<Organization> organizations)
         authenticated,
+    required TResult Function(GitHub github, Organization organization,
+            Stream<Repository> repositories)
+        organizationSelected,
   }) {
     return authenticationFailed();
   }
@@ -569,6 +596,9 @@ class _$AuthenticationFailedImpl implements AuthenticationFailed {
     TResult? Function()? authenticationFailed,
     TResult? Function(GitHub github, List<Organization> organizations)?
         authenticated,
+    TResult? Function(GitHub github, Organization organization,
+            Stream<Repository> repositories)?
+        organizationSelected,
   }) {
     return authenticationFailed?.call();
   }
@@ -580,6 +610,9 @@ class _$AuthenticationFailedImpl implements AuthenticationFailed {
     TResult Function()? authenticationFailed,
     TResult Function(GitHub github, List<Organization> organizations)?
         authenticated,
+    TResult Function(GitHub github, Organization organization,
+            Stream<Repository> repositories)?
+        organizationSelected,
     required TResult orElse(),
   }) {
     if (authenticationFailed != null) {
@@ -594,6 +627,7 @@ class _$AuthenticationFailedImpl implements AuthenticationFailed {
     required TResult Function(Initial value) initial,
     required TResult Function(AuthenticationFailed value) authenticationFailed,
     required TResult Function(Authenticated value) authenticated,
+    required TResult Function(OrganizationSelected value) organizationSelected,
   }) {
     return authenticationFailed(this);
   }
@@ -604,6 +638,7 @@ class _$AuthenticationFailedImpl implements AuthenticationFailed {
     TResult? Function(Initial value)? initial,
     TResult? Function(AuthenticationFailed value)? authenticationFailed,
     TResult? Function(Authenticated value)? authenticated,
+    TResult? Function(OrganizationSelected value)? organizationSelected,
   }) {
     return authenticationFailed?.call(this);
   }
@@ -614,6 +649,7 @@ class _$AuthenticationFailedImpl implements AuthenticationFailed {
     TResult Function(Initial value)? initial,
     TResult Function(AuthenticationFailed value)? authenticationFailed,
     TResult Function(Authenticated value)? authenticated,
+    TResult Function(OrganizationSelected value)? organizationSelected,
     required TResult orElse(),
   }) {
     if (authenticationFailed != null) {
@@ -716,6 +752,9 @@ class _$AuthenticatedImpl implements Authenticated {
     required TResult Function() authenticationFailed,
     required TResult Function(GitHub github, List<Organization> organizations)
         authenticated,
+    required TResult Function(GitHub github, Organization organization,
+            Stream<Repository> repositories)
+        organizationSelected,
   }) {
     return authenticated(github, organizations);
   }
@@ -727,6 +766,9 @@ class _$AuthenticatedImpl implements Authenticated {
     TResult? Function()? authenticationFailed,
     TResult? Function(GitHub github, List<Organization> organizations)?
         authenticated,
+    TResult? Function(GitHub github, Organization organization,
+            Stream<Repository> repositories)?
+        organizationSelected,
   }) {
     return authenticated?.call(github, organizations);
   }
@@ -738,6 +780,9 @@ class _$AuthenticatedImpl implements Authenticated {
     TResult Function()? authenticationFailed,
     TResult Function(GitHub github, List<Organization> organizations)?
         authenticated,
+    TResult Function(GitHub github, Organization organization,
+            Stream<Repository> repositories)?
+        organizationSelected,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -752,6 +797,7 @@ class _$AuthenticatedImpl implements Authenticated {
     required TResult Function(Initial value) initial,
     required TResult Function(AuthenticationFailed value) authenticationFailed,
     required TResult Function(Authenticated value) authenticated,
+    required TResult Function(OrganizationSelected value) organizationSelected,
   }) {
     return authenticated(this);
   }
@@ -762,6 +808,7 @@ class _$AuthenticatedImpl implements Authenticated {
     TResult? Function(Initial value)? initial,
     TResult? Function(AuthenticationFailed value)? authenticationFailed,
     TResult? Function(Authenticated value)? authenticated,
+    TResult? Function(OrganizationSelected value)? organizationSelected,
   }) {
     return authenticated?.call(this);
   }
@@ -772,6 +819,7 @@ class _$AuthenticatedImpl implements Authenticated {
     TResult Function(Initial value)? initial,
     TResult Function(AuthenticationFailed value)? authenticationFailed,
     TResult Function(Authenticated value)? authenticated,
+    TResult Function(OrganizationSelected value)? organizationSelected,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -794,4 +842,198 @@ abstract class Authenticated implements RepoDeleterState {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AuthenticatedImplCopyWith<_$AuthenticatedImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$OrganizationSelectedImplCopyWith<$Res> {
+  factory _$$OrganizationSelectedImplCopyWith(_$OrganizationSelectedImpl value,
+          $Res Function(_$OrganizationSelectedImpl) then) =
+      __$$OrganizationSelectedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {GitHub github,
+      Organization organization,
+      Stream<Repository> repositories});
+}
+
+/// @nodoc
+class __$$OrganizationSelectedImplCopyWithImpl<$Res>
+    extends _$RepoDeleterStateCopyWithImpl<$Res, _$OrganizationSelectedImpl>
+    implements _$$OrganizationSelectedImplCopyWith<$Res> {
+  __$$OrganizationSelectedImplCopyWithImpl(_$OrganizationSelectedImpl _value,
+      $Res Function(_$OrganizationSelectedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of RepoDeleterState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? github = null,
+    Object? organization = null,
+    Object? repositories = null,
+  }) {
+    return _then(_$OrganizationSelectedImpl(
+      github: null == github
+          ? _value.github
+          : github // ignore: cast_nullable_to_non_nullable
+              as GitHub,
+      organization: null == organization
+          ? _value.organization
+          : organization // ignore: cast_nullable_to_non_nullable
+              as Organization,
+      repositories: null == repositories
+          ? _value.repositories
+          : repositories // ignore: cast_nullable_to_non_nullable
+              as Stream<Repository>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$OrganizationSelectedImpl implements OrganizationSelected {
+  const _$OrganizationSelectedImpl(
+      {required this.github,
+      required this.organization,
+      required this.repositories});
+
+  @override
+  final GitHub github;
+  @override
+  final Organization organization;
+  @override
+  final Stream<Repository> repositories;
+
+  @override
+  String toString() {
+    return 'RepoDeleterState.organizationSelected(github: $github, organization: $organization, repositories: $repositories)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OrganizationSelectedImpl &&
+            (identical(other.github, github) || other.github == github) &&
+            (identical(other.organization, organization) ||
+                other.organization == organization) &&
+            (identical(other.repositories, repositories) ||
+                other.repositories == repositories));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, github, organization, repositories);
+
+  /// Create a copy of RepoDeleterState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OrganizationSelectedImplCopyWith<_$OrganizationSelectedImpl>
+      get copyWith =>
+          __$$OrganizationSelectedImplCopyWithImpl<_$OrganizationSelectedImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() authenticationFailed,
+    required TResult Function(GitHub github, List<Organization> organizations)
+        authenticated,
+    required TResult Function(GitHub github, Organization organization,
+            Stream<Repository> repositories)
+        organizationSelected,
+  }) {
+    return organizationSelected(github, organization, repositories);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? authenticationFailed,
+    TResult? Function(GitHub github, List<Organization> organizations)?
+        authenticated,
+    TResult? Function(GitHub github, Organization organization,
+            Stream<Repository> repositories)?
+        organizationSelected,
+  }) {
+    return organizationSelected?.call(github, organization, repositories);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? authenticationFailed,
+    TResult Function(GitHub github, List<Organization> organizations)?
+        authenticated,
+    TResult Function(GitHub github, Organization organization,
+            Stream<Repository> repositories)?
+        organizationSelected,
+    required TResult orElse(),
+  }) {
+    if (organizationSelected != null) {
+      return organizationSelected(github, organization, repositories);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(AuthenticationFailed value) authenticationFailed,
+    required TResult Function(Authenticated value) authenticated,
+    required TResult Function(OrganizationSelected value) organizationSelected,
+  }) {
+    return organizationSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(AuthenticationFailed value)? authenticationFailed,
+    TResult? Function(Authenticated value)? authenticated,
+    TResult? Function(OrganizationSelected value)? organizationSelected,
+  }) {
+    return organizationSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(AuthenticationFailed value)? authenticationFailed,
+    TResult Function(Authenticated value)? authenticated,
+    TResult Function(OrganizationSelected value)? organizationSelected,
+    required TResult orElse(),
+  }) {
+    if (organizationSelected != null) {
+      return organizationSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class OrganizationSelected implements RepoDeleterState {
+  const factory OrganizationSelected(
+          {required final GitHub github,
+          required final Organization organization,
+          required final Stream<Repository> repositories}) =
+      _$OrganizationSelectedImpl;
+
+  GitHub get github;
+  Organization get organization;
+  Stream<Repository> get repositories;
+
+  /// Create a copy of RepoDeleterState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$OrganizationSelectedImplCopyWith<_$OrganizationSelectedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

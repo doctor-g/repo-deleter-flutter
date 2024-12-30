@@ -26,6 +26,17 @@ class RepoDeleterBloc extends Bloc<RepoDeleterEvent, RepoDeleterState> {
 
   void _onSelectedOrganization(
       _SelectedOrganization event, Emitter<RepoDeleterState> emit) {
-    print('You selected ${event.organization.login}');
+    assert(state is Authenticated);
+    final authenticatedState = state as Authenticated;
+    final repositoriesService = authenticatedState.github.repositories;
+    final organization = event.organization;
+    final stream = repositoriesService
+        .listOrganizationRepositories(organization.login!, type: 'all');
+
+    emit(RepoDeleterState.organizationSelected(
+      github: authenticatedState.github,
+      organization: organization,
+      repositories: stream,
+    ));
   }
 }
