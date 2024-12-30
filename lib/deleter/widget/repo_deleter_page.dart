@@ -22,7 +22,17 @@ class RepoDeleterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Repo Deleter')),
+      appBar: AppBar(
+        title: const Text('Repo Deleter'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.info),
+            onPressed: () => showAboutDialog(
+                context: context,
+                children: [const Text('©2024 Paul Gestwicki')]),
+          )
+        ],
+      ),
       body: BlocBuilder<RepoDeleterBloc, RepoDeleterState>(
         builder: (context, state) {
           return switch (state) {
