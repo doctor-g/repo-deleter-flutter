@@ -42,20 +42,17 @@ class RepoDeleterWidget extends StatelessWidget {
                         label: organization.login ?? 'Unnamed Organization'),
                 ],
               ),
-            OrganizationSelected(:final organization, :final repositories) =>
+            OrganizationSelected(:final organization) => Column(
+                children: [
+                  _makeOrganizationHeader(organization),
+                  const CircularProgressIndicator(),
+                ],
+              ),
+            RepositoriesLoaded(:final organization, :final repositories) =>
               Column(
                 children: [
-                  Text('Organization: ${organization.login!}'),
-                  FutureBuilder(
-                    future: repositories.toList(),
-                    builder: (context, snapshot) {
-                      if (snapshot.hasData) {
-                        return _RepositorySelectionWidget(snapshot.data!);
-                      } else {
-                        return const CircularProgressIndicator();
-                      }
-                    },
-                  ),
+                  _makeOrganizationHeader(organization),
+                  _RepositorySelectionWidget(repositories)
                 ],
               ),
           };
@@ -67,14 +64,15 @@ class RepoDeleterWidget extends StatelessWidget {
   Widget _showAuthenticationFailure() {
     return const Text('Authentication not found in environment.');
   }
+
+  Widget _makeOrganizationHeader(Organization organization) =>
+      Text('Organization: ${organization.login}');
 }
 
 class _RepositorySelectionWidget extends StatelessWidget {
   final List<Repository> repositories;
 
-  _RepositorySelectionWidget(this.repositories) {
-    repositories.sort((a, b) => a.name.compareTo(b.name));
-  }
+  const _RepositorySelectionWidget(this.repositories);
 
   @override
   Widget build(BuildContext context) {

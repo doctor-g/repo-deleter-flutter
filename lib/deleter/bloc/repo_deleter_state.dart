@@ -11,9 +11,15 @@ sealed class RepoDeleterState with _$RepoDeleterState {
     required List<Organization> organizations,
   }) = Authenticated;
 
+  /// A state where the organization is selected and the repositories are loading.
   const factory RepoDeleterState.organizationSelected({
     required GitHub github,
     required Organization organization,
-    required Stream<Repository> repositories,
   }) = OrganizationSelected;
+
+  const factory RepoDeleterState.repositoriesLoaded({
+    required GitHub github,
+    required Organization organization,
+    required List<Repository> repositories,
+  }) = RepositoriesLoaded;
 }

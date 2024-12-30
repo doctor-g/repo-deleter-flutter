@@ -25,7 +25,7 @@ class RepoDeleterBloc extends Bloc<RepoDeleterEvent, RepoDeleterState> {
   }
 
   void _onSelectedOrganization(
-      _SelectedOrganization event, Emitter<RepoDeleterState> emit) {
+      _SelectedOrganization event, Emitter<RepoDeleterState> emit) async {
     assert(state is Authenticated);
     final authenticatedState = state as Authenticated;
     final repositoriesService = authenticatedState.github.repositories;
@@ -36,7 +36,14 @@ class RepoDeleterBloc extends Bloc<RepoDeleterEvent, RepoDeleterState> {
     emit(RepoDeleterState.organizationSelected(
       github: authenticatedState.github,
       organization: organization,
-      repositories: stream,
+    ));
+
+    final repositories = await stream.toList();
+    repositories.sort((a, b) => a.name.compareTo(b.name));
+    emit(RepoDeleterState.repositoriesLoaded(
+      github: authenticatedState.github,
+      organization: organization,
+      repositories: repositories,
     ));
   }
 }
