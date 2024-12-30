@@ -52,7 +52,13 @@ class RepoDeleterWidget extends StatelessWidget {
               Column(
                 children: [
                   _makeOrganizationHeader(organization),
-                  _RepositorySelectionWidget(repositories)
+                  _RepositorySelectionWidget(repositories),
+                  const ElevatedButton(
+                    onPressed: null,
+                    child: Text(
+                      'Delete Selected Repositories\n(Not Yet Implemented)',
+                    ),
+                  )
                 ],
               ),
           };
@@ -69,17 +75,39 @@ class RepoDeleterWidget extends StatelessWidget {
       Text('Organization: ${organization.login}');
 }
 
-class _RepositorySelectionWidget extends StatelessWidget {
+class _RepositorySelectionWidget extends StatefulWidget {
   final List<Repository> repositories;
 
   const _RepositorySelectionWidget(this.repositories);
+
+  @override
+  State<_RepositorySelectionWidget> createState() =>
+      _RepositorySelectionWidgetState();
+}
+
+class _RepositorySelectionWidgetState
+    extends State<_RepositorySelectionWidget> {
+  final Set<Repository> selectedRepositories = {};
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView(
         children: [
-          for (final repo in repositories) Text(repo.name),
+          for (final repo in widget.repositories)
+            CheckboxListTile(
+              title: Text(repo.name),
+              value: selectedRepositories.contains(repo),
+              onChanged: (selected) => setState(() {
+                if (selected != null) {
+                  if (selected) {
+                    selectedRepositories.add(repo);
+                  } else {
+                    selectedRepositories.remove(repo);
+                  }
+                }
+              }),
+            ),
         ],
       ),
     );
